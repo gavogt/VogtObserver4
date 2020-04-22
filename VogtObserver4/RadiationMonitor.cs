@@ -6,10 +6,10 @@ namespace VogtObserver4
 {
     abstract class RadiationMonitor : IObserver
     {
-
+        private string _location;
         public RadiationMonitor(string location)
         {
-
+            _location = location;
         }
 
         abstract public void Update(IObservable subject, Object o);
@@ -20,11 +20,6 @@ namespace VogtObserver4
         }
 
         public abstract string GenerateReport(double observation);
-        
-        public string Now()
-        {
-            // The current time in yyyy-MM-dd HH:mm:ss format
-            return null;
-        }
+
     }
 }

@@ -8,8 +8,10 @@ namespace VogtObserver4
     {
         private double _warningThreshold;
         private string _location;
+        private Object _state;
+        private double _average;
 
-        public ControlRoom(string location, double warningThreshold):base(location)
+        public ControlRoom(string location, double warningThreshold) : base(location)
         {
             _location = location;
             _warningThreshold = warningThreshold;
@@ -17,12 +19,15 @@ namespace VogtObserver4
 
         public override string GenerateReport(double observation)
         {
-            throw new NotImplementedException();
+            _average += observation;
+
+            return Convert.ToString(_average);
         }
 
-        public override void Update(IObservable subject, Object o)
+        public override void Update(IObservable subject, Object state)
         {
-            Console.WriteLine($"{DateTime.Now}::WARNING::::Reactor A Control Room");
+            GenerateReport(Convert.ToDouble(state.ToString()));
+            Console.WriteLine($"{DateTime.Now}::WARNING::{state.ToString()}::{_location}");
         }
     }
 }

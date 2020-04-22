@@ -10,6 +10,6 @@ namespace VogtObserver4
 
         public void RemoveObserver(IObserver o);
 
-        public void Notify();
+        public void Notify(Object state);
     }
 }
