@@ -4,7 +4,12 @@ using System.Text;
 
 namespace VogtObserver4
 {
-    class IObservable
+    interface IObservable
     {
+        public void AddObserver();
+
+        public void RemoveObserver();
+
+        public void Notify();
     }
 }

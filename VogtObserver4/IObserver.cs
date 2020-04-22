@@ -4,7 +4,8 @@ using System.Text;
 
 namespace VogtObserver4
 {
-    class IObserver
+    interface IObserver
     {
+        public void Update();
     }
 }
