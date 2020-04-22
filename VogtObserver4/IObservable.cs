@@ -6,9 +6,9 @@ namespace VogtObserver4
 {
     interface IObservable
     {
-        public void AddObserver();
+        public void AddObserver(IObserver o);
 
-        public void RemoveObserver();
+        public void RemoveObserver(IObserver o);
 
         public void Notify();
     }
