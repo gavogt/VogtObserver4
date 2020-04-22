@@ -4,7 +4,7 @@ using System.Text;
 
 namespace VogtObserver4
 {
-    class ControlRoom
+    class ControlRoom : RadiationMonitor
     {
     }
 }
