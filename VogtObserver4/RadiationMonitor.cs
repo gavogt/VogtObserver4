@@ -7,6 +7,7 @@ namespace VogtObserver4
     abstract class RadiationMonitor : IObserver
     {
         private string _location;
+
         public RadiationMonitor(string location)
         {
             _location = location;
@@ -16,7 +17,7 @@ namespace VogtObserver4
 
         public string GetLocation()
         {
-            return null;
+            return _location;
         }
 
         public abstract string GenerateReport(double observation);

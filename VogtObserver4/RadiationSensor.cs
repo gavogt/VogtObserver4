@@ -7,7 +7,6 @@ namespace VogtObserver4
     class RadiationSensor : IObservable
     {
         private List<IObserver> _observers = new List<IObserver>();
-        private double _radiation;
         private string _location;
         private int _seed;
         private double _state;
@@ -45,8 +44,8 @@ namespace VogtObserver4
         // set state
         {
 
-            Notify(GetRadiation());
             // Updates radiation, changes the state to true, and notifies all observers of the change
+            Notify(GetRadiation());
 
         }
 
