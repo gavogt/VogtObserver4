@@ -19,15 +19,22 @@ namespace VogtObserver4
 
         public override string GenerateReport(double observation)
         {
-            _average += observation;
-
-            return Convert.ToString(_average);
+            if (_warningThreshold < observation)
+            {
+                return Convert.ToString(observation);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public override void Update(IObservable subject, Object state)
         {
-            GenerateReport(Convert.ToDouble(state.ToString()));
-            Console.WriteLine($"{DateTime.Now}::WARNING::{state.ToString()}::{_location}");
+            if (GenerateReport(Convert.ToDouble(state.ToString())) != null)
+            {
+                Console.WriteLine($"{DateTime.Now}::WARNING::{GenerateReport(Convert.ToDouble(state.ToString()))}::{_location}");
+            }
         }
     }
 }

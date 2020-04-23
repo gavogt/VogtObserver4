@@ -55,7 +55,7 @@ namespace VogtObserver4
         public double GetRadiation()
         {
             Random random = new Random();
-            _state = random.NextDouble();
+            _state = random.Next(1, _seed);
 
             return _state;
         }
